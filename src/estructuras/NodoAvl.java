@@ -46,15 +46,32 @@ public class NodoAvl<T extends Comparable> {
 		y.hijoDer=this;
 		this.padre= y;
 	}
-	public void balancear(){
-		
+	public void balancear(ArbolAvl t){
+		NodoAvl<T> actual= this;
 		fb= darFactorBalanceo();
 		if(Math.abs(fb)>1){
 			if(fb==2){
-				
+				if(hijoDer.darFactorBalanceo()>=0){
+					leftRotate(t);
+					actual=this.padre;
+				}else{
+					hijoDer.rightRotate(t);
+					leftRotate(t);
+					actual= this.padre;
+				}
 			}else{//Fb ==-2
-				
+				if(hijoIzq.darFactorBalanceo()<=0){
+					rightRotate(t);
+					actual=this.padre;
+				}else{
+					hijoIzq.leftRotate(t);
+					rightRotate(t);
+					actual= this.padre;
+				}
 			}
+		}
+		if(actual.padre!= null){
+			padre.balancear(t);
 		}
 	}
 	public int darFactorBalanceo(){
@@ -66,6 +83,7 @@ public class NodoAvl<T extends Comparable> {
 		if(hijoDer!= null){
 			der=hijoDer.darAlturaIncluyendoRaiz();
 		}
+		fb= der-izq;
 		return der-izq;
 	}
 	public int darAlturaIncluyendoRaiz(){

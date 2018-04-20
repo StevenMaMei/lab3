@@ -7,4 +7,7 @@ public class ArbolAvl<T extends Comparable> {
 	public void modificarRaiz(NodoAvl<T> n){
 		raiz= n;
 	}
+	public NodoAvl<T> darRaiz(){
+		return raiz;
+	}
 }
