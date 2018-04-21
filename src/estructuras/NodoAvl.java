@@ -15,7 +15,8 @@ public class NodoAvl<T extends Comparable> {
 	public void leftRotate(ArbolAvl a){
 		NodoAvl<T> y = hijoDer;
 		hijoDer=y.hijoIzq;
-		y.hijoIzq.padre= this;
+		if(y.hijoIzq!= null)
+			y.hijoIzq.padre= this;
 		y.padre=this.padre;
 		if(this.padre==null){
 			a.modificarRaiz(y);
@@ -32,7 +33,8 @@ public class NodoAvl<T extends Comparable> {
 	public void rightRotate(ArbolAvl a){
 		NodoAvl<T> y = hijoIzq;
 		hijoIzq=y.hijoDer;
-		y.hijoDer.padre= this;
+		if(y.hijoDer!= null)
+			y.hijoDer.padre= this;
 		y.padre=this.padre;
 		if(this.padre==null){
 			a.modificarRaiz(y);
