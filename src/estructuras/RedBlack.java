@@ -29,18 +29,6 @@ public class RedBlack <T extends Comparable> implements IRedBlack<T>{
 	public void setNil(NodoRedBlack<T> nil) {
 		this.nil = nil;
 	}
-
-	@Override
-	public void insert(T elem) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public ArrayList<T> buscar(T elem) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	@Override
 	public void insertarNodo(T objetoAct) {
