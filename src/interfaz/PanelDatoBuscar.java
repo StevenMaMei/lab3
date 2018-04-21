@@ -53,9 +53,7 @@ public class PanelDatoBuscar extends JPanel implements ActionListener {
 		
 	}
 	
-	
-	
-	public String darDato() {
+	public String getDato() {
 		String dato = campo.getText();
 		return dato;
 	}

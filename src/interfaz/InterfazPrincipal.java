@@ -43,37 +43,49 @@ public class InterfazPrincipal extends JFrame {
 		
 		add(aux, BorderLayout.SOUTH);
 		
+		
 	}
 	
 	public void buscarSI() {
+		String dato = panelDato.getDato();  ; 
+		
 		
 	}
 	
 	public void buscarNI() {
+		String dato = panelDato.getDato();  ; 
+		
 		
 	}
 
 	public void buscarN() {
+		String dato = panelDato.getDato();  ; 
 		
 	}
 
 	public void buscarD() {
+		String dato = panelDato.getDato();  ; 
+		
 		
 	}
 
 	public void buscarNA() {
+		String dato = panelDato.getDato();  ; 
 		
 	}
 
 	public void buscarGC() {
+		String dato = panelDato.getDato();  ; 
 		
 	}
 	
 	public void buscarDC() {
+		String dato = panelDato.getDato();  ; 
 		
 	}
 
 	public void buscarCI() {
+		String dato = panelDato.getDato();  ; 
 		
 	}
 	
