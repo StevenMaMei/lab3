@@ -26,7 +26,7 @@ public class PanelDatoBuscar extends JPanel implements ActionListener {
 		opciones.setTitleColor(Color.BLACK);
 		setBorder(opciones);
 		
-		campo = new JTextField("");
+		campo = new JTextField();
 		campo.setFont(new java.awt.Font("Tahoma", 0, 30));
 		
 		limpiar = new JButton("Limpiar");
@@ -46,7 +46,7 @@ public class PanelDatoBuscar extends JPanel implements ActionListener {
 		
 		String comant = e.getActionCommand();
 		
-		if(e.equals(LIMPIAR)) {
+		if(comant.equals(LIMPIAR)) {
 			campo.setText(" ");
 		}
 		

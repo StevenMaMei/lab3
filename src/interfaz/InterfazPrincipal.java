@@ -6,7 +6,7 @@ import java.awt.GridLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class interfazPrincipal extends JFrame {
+public class InterfazPrincipal extends JFrame {
 
 	
 	private PanelBaseDeDatos panelBaseDeDatos;
@@ -16,7 +16,7 @@ public class interfazPrincipal extends JFrame {
 	
 	
 	
-	public interfazPrincipal() {
+	public InterfazPrincipal() {
 	
 		setSize(1500,400);
 		setTitle("Base de datos");
@@ -78,7 +78,7 @@ public class interfazPrincipal extends JFrame {
 	}
 	
 	public static void main (String [] arga) {
-		interfazPrincipal vent = new interfazPrincipal();
+		InterfazPrincipal vent = new InterfazPrincipal();
 		vent.setVisible(true);
 	}
 	

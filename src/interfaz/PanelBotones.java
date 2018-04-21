@@ -36,9 +36,9 @@ public class PanelBotones extends JPanel implements ActionListener {
 	
 	
 	
-	private interfazPrincipal principal;
+	private InterfazPrincipal principal;
 	
-	public PanelBotones(interfazPrincipal principal) {
+	public PanelBotones(InterfazPrincipal principal) {
 		
 		this.principal = principal;
 		
