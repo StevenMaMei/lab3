@@ -58,8 +58,8 @@ public class NodoRedBlack <T extends Comparable> {
 		return padre;
 	}
 
-	public void setPadre(NodoRedBlack antecesor) {
-		this.padre = antecesor;
+	public void setPadre(NodoRedBlack padre) {
+		this.padre = padre;
 	}
 	
 	public void leftRotate(RedBlack T) {
@@ -100,7 +100,7 @@ public class NodoRedBlack <T extends Comparable> {
 	
 	public NodoRedBlack insertarObjeto(T nuevo, RedBlack arbol){
 		if(elem.compareTo(nuevo)>0){
-			if(izq== null){
+			if(izq == arbol.getNil()){
 				izq=new NodoRedBlack<T>(nuevo, this, arbol);
 				return izq;
 			}else{
@@ -110,7 +110,7 @@ public class NodoRedBlack <T extends Comparable> {
 			repetidos.add(nuevo);
 			return this;
 		}else{
-			if(der==null){
+			if(der==arbol.getNil()){
 				der=new NodoRedBlack<T>(nuevo,this, arbol);
 				return der;
 			}else{

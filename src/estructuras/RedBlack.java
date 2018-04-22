@@ -3,6 +3,8 @@ package estructuras;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import mundo.Objeto;
+
 public class RedBlack <T extends Comparable> implements IRedBlack<T>{
 
 	private NodoRedBlack<T> raiz;
@@ -33,7 +35,7 @@ public class RedBlack <T extends Comparable> implements IRedBlack<T>{
 	@Override
 	public void insertarNodo(T objetoAct) {
 
-		NodoRedBlack<T> nodoInsertar = new NodoRedBlack<>(objetoAct, raiz, this);
+		NodoRedBlack<T> nodoInsertar = new NodoRedBlack<>(objetoAct, nil, this);
 
 		if (raiz == null) {
 			raiz = nodoInsertar;
@@ -49,7 +51,7 @@ public class RedBlack <T extends Comparable> implements IRedBlack<T>{
 
 	@Override
 	public void insertFixUp(NodoRedBlack z) {
-		while (z.getPadre().getColor().equals(Color.RED)) {
+		while (z != nil && z.getPadre() != raiz && z.getPadre().getColor().equals(Color.RED)) {
 			NodoRedBlack <T> papa = z.getPadre();
 			NodoRedBlack<T> abuelo = papa.getPadre();
 			if (papa == abuelo.getIzq()) {
@@ -79,11 +81,11 @@ public class RedBlack <T extends Comparable> implements IRedBlack<T>{
 					if (z == papa.getIzq()) {
 						z = papa;
 						z.rigthRotate(this);;
-				}
+					}
 					papa.setColor(Color.BLACK);
 					abuelo.setColor(Color.RED);
 					abuelo.leftRotate(this);;
-				}
+					}
 			}
 		}
 		raiz.setColor(Color.BLACK);
@@ -132,7 +134,9 @@ public class RedBlack <T extends Comparable> implements IRedBlack<T>{
 		} else {
 			x = y.getDer();
 		}
-		x.setPadre(y.getPadre());
+		if (x != nil) {
+			x.setPadre(y.getPadre());
+		}
 		if (y.getPadre() == nil) {
 			raiz = x;
 		} else {
@@ -146,7 +150,7 @@ public class RedBlack <T extends Comparable> implements IRedBlack<T>{
 			z.setElem(y.getElem());
 		}
 		if (y.getColor() == Color.BLACK) {
-			deleteFixup(x);
+			deleteFixup(z);
 		}
 
 	}

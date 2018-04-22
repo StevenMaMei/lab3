@@ -7,9 +7,9 @@ public class Objeto implements Comparable{
 	private String atributo;
 	private File archivo;
 
-	public Objeto (String atributo, String ruta) {
+	public Objeto (String atributo, File arch) {
 		this.atributo = atributo;
-		archivo = new File(ruta);
+		archivo = arch;
 	}
 	
 	public String getAtributo() {
