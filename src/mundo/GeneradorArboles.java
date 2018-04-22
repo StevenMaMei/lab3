@@ -17,27 +17,27 @@ public class GeneradorArboles implements Serializable{
 	
 	
 	
-	public static void main(String[] args) throws IOException {
-		File arch = new File ("./data/arbolNom");
-		RedBlack<Objeto> nom = new RedBlack<>();
-		int i = 1;
-		File leer = new File(RUT + "/" + i + ".txt");
-		while (leer.exists()) {
-			BufferedReader lector = new BufferedReader(new FileReader(leer));
-			String [] dats = lector.readLine().split("\t");
-			String at;
-			if (dats.length == 9) {
-				at = dats[0] + ", " + dats [1];
-			} else {
-				at = dats [0];
-			}
-			System.out.println(i + ", " + at);
-			Objeto obj = new Objeto(at, leer);
-			nom.insertarNodo(obj);
-			leer = new File(RUT +"/" + ++i + ".txt");
-		}
-		ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(arch));
-		os.writeObject(nom);
+	public static void main(String[] args) throws Exception {
+//		File arch = new File ("./data/arbolNom");
+//		RedBlack<Objeto> nom = new RedBlack<>();
+//		int i = 1;
+//		File leer = new File(RUT + "/" + i + ".txt");
+//		while (leer.exists()) {
+//			BufferedReader lector = new BufferedReader(new FileReader(leer));
+//			String [] dats = lector.readLine().split("\t");
+//			String at;
+//			if (dats.length == 9) {
+//				at = dats[0] + ", " + dats [1];
+//			} else {
+//				at = dats [0];
+//			}
+//			System.out.println(i + ", " + at);
+//			Objeto obj = new Objeto(at, leer);
+//			nom.insertarNodo(obj);
+//			leer = new File(RUT +"/" + ++i + ".txt");
+//		}
+//		ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(arch));
+//		os.writeObject(nom);
 	}
 
 }
