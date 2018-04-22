@@ -198,5 +198,24 @@ public class TestArbolAvl {
 			fail();
 		}
 	}
+	
+	@Test
+	public void probarBuscar(){
+		setupEscenario0();
+		try {
+			assertTrue(arbol.buscarElemento(10)== null);
+			fail();
+		} catch (Exception e) {
+			
+		}
+		setupEscenario1();
+		try {
+			assertTrue(arbol.buscarElemento(4).get(0)==4);
+			assertTrue(arbol.buscarElemento(100)== null);
+		} catch (Exception e) {
+			fail();
+		}
+		
+	}
 
 }
