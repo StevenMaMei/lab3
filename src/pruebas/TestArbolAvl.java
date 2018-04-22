@@ -192,6 +192,11 @@ public class TestArbolAvl {
 		}
 		assertTrue(arbol.darRaiz().darObjeto()==8&& arbol.darRaiz().darHijoIzq().darObjeto()==7&&arbol.darRaiz().darHijoDer().darObjeto()==9);
 		assertTrue(arbol.darRaiz().darHijoDer().darPadre().darObjeto()==8&&arbol.darRaiz().darHijoIzq().darPadre().darObjeto()==8);
+		try {
+			assertTrue(arbol.buscarElemento(5)== null);
+		} catch (Exception e) {
+			fail();
+		}
 	}
 
 }
