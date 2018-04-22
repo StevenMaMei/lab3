@@ -1,9 +1,10 @@
 package estructuras;
 
 import java.awt.Color;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class NodoRedBlack <T extends Comparable> {
+public class NodoRedBlack <T extends Comparable> implements Serializable{
 
 	private T elem;
 	private Color color;

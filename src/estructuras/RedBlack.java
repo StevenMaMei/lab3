@@ -1,11 +1,12 @@
 package estructuras;
 
 import java.awt.Color;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import mundo.Objeto;
 
-public class RedBlack <T extends Comparable> implements IRedBlack<T>{
+public class RedBlack <T extends Comparable> implements IRedBlack<T>, Serializable{
 
 	private NodoRedBlack<T> raiz;
 	

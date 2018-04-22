@@ -1,8 +1,9 @@
 package mundo;
 
 import java.io.File;
+import java.io.Serializable;
 
-public class Objeto implements Comparable{
+public class Objeto implements Comparable, Serializable{
 
 	private String atributo;
 	private File archivo;
