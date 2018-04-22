@@ -19,13 +19,15 @@ public class PanelBaseDeDatos extends JPanel {
 
 	private JTable JtableBaseDeDatos;
 	private String [] titulos = {"Sede IPS","NIT IPS","Naturaleza","Digito de verificación","Nivel de atención","Grupo de capacidad","Descripción de capacidad","Cantidad de capacidad instalada"};
-	private String [][] datos = {{"GAY "," "," "," "," "," "," "," "}};
+	private String [][] datos ;
 	
 	public PanelBaseDeDatos() {
 		
 		TitledBorder titulo = BorderFactory.createTitledBorder("Datos");
 		titulo.setTitleColor(Color.BLACK);
 		setBorder(titulo);
+		
+		datos = new String [10000][8];
 		
 		
 		JtableBaseDeDatos = new JTable(datos, titulos);
@@ -40,10 +42,11 @@ public class PanelBaseDeDatos extends JPanel {
 
 	public void refrescarDatosEncontrados(String [][] matriz) {
 			
-		for (int i =0 ; i<matriz.length;i++) {
+		for (int i =0 ; i<matriz.length;i++) 
 			for(int j=0; j<matriz[i].length; j++) {
 				datos[i][j] = matriz[i][j];
 				
+				repaint();
 			}
 			
 		}
@@ -54,4 +57,4 @@ public class PanelBaseDeDatos extends JPanel {
 	
 	
 	
-}
+
