@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
+import estructuras.ArbolAvl;
 import estructuras.RedBlack;
 
 public class GeneradorArboles implements Serializable{
@@ -17,17 +18,17 @@ public class GeneradorArboles implements Serializable{
 	
 	
 	public static void main(String[] args) throws IOException {
-		File arch = new File ("./data/arbolNit");
-		RedBlack<Objeto> nom = new RedBlack<>();
+		File arch = new File ("./data/arbolDescCap");
+		ArbolAvl<Objeto> nom = new ArbolAvl<>();
 		int i = 1;
 		File leer = new File(RUT + "/" + i + ".txt");
 		while (leer.exists()) {
 			BufferedReader lector = new BufferedReader(new FileReader(leer));
 			String [] dats = lector.readLine().split("\t");
-			String at = dats[1];
+			String at = dats[6];
 			System.out.println(at);
 			Objeto obj = new Objeto(at, leer);
-			nom.insertarNodo(obj);
+			nom.insertar(obj);
 			leer = new File(RUT +"/" + ++i + ".txt");
 		}
 		try {
