@@ -1,8 +1,9 @@
 package estructuras;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class NodoAvl<T extends Comparable> {
+public class NodoAvl<T extends Comparable> implements Serializable{
 	
 	private int fb;
 	private ArrayList<T> repetidos;

@@ -1,9 +1,10 @@
 package estructuras;
 
 import java.awt.Color;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ArbolAvl<T extends Comparable> {
+public class ArbolAvl<T extends Comparable> implements Serializable{
 
 	private NodoAvl<T> raiz;
 	
