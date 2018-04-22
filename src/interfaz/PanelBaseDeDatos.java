@@ -19,9 +19,7 @@ public class PanelBaseDeDatos extends JPanel {
 
 	private JTable JtableBaseDeDatos;
 	private String [] titulos = {"Sede IPS","NIT IPS","Naturaleza","Digito de verificación","Nivel de atención","Grupo de capacidad","Descripción de capacidad","Cantidad de capacidad instalada"};
-	private String [][] datos;
-	//{"Andrés","Vargas","A00762387","79002283","Ing. Industrial","3.5"}
-	
+	private String [][] datos = {{"GAY "," "," "," "," "," "," "," "}};
 	
 	public PanelBaseDeDatos() {
 		
@@ -29,7 +27,6 @@ public class PanelBaseDeDatos extends JPanel {
 		titulo.setTitleColor(Color.BLACK);
 		setBorder(titulo);
 		
-		datos = new String [1][8];//modificar.
 		
 		JtableBaseDeDatos = new JTable(datos, titulos);
 		JScrollPane JS = new JScrollPane(JtableBaseDeDatos);
@@ -40,10 +37,17 @@ public class PanelBaseDeDatos extends JPanel {
 		
 	}
 	
-	
-	
-	
-	public void refrescarDatosEncontrados() {
+
+	public void refrescarDatosEncontrados(String [][] matriz) {
+			
+		for (int i =0 ; i<matriz.length;i++) {
+			for(int j=0; j<matriz[i].length; j++) {
+				datos[i][j] = matriz[i][j];
+				
+			}
+			
+		}
+		
 		
 	}
 	
