@@ -1,15 +1,60 @@
 package estructuras;
 
+import java.util.ArrayList;
+
 public class NodoAvl<T extends Comparable> {
 	
 	private int fb;
+	private ArrayList<T> repetidos;
 	private NodoAvl<T> hijoIzq;
 	private NodoAvl<T> hijoDer;
 	private NodoAvl<T> padre;
 	private T objeto;
 	
-	public NodoAvl(T o){
+	public NodoAvl(T o,NodoAvl<T> p){
 		objeto =o;
+		padre=p;
+		repetidos = new ArrayList<>();
+		repetidos.add(objeto);
+	}
+	
+	public NodoAvl<T> insertarObjeto(T nuevo){
+		if(objeto.compareTo(nuevo)>0){
+			if(hijoIzq== null){
+				hijoIzq=new NodoAvl<>(nuevo, this);
+				return hijoIzq;
+			}else{
+				return hijoIzq.insertarObjeto(nuevo);
+			}
+		}else if(objeto.compareTo(nuevo)==0){
+			repetidos.add(nuevo);
+			return this;
+		}else{
+			if(hijoDer==null){
+				hijoDer=new NodoAvl<>(nuevo,this );
+				return hijoDer;
+			}else{
+				return hijoDer.insertarObjeto(nuevo);
+			}
+		}
+	}
+	public NodoAvl<T> buscarElemento(T obj){
+		if(this.objeto.compareTo(obj) == 0){
+			return this;
+		}else if(this.objeto.compareTo(obj)>0){
+			if(hijoIzq == null){
+				return null;
+			}else{
+				return hijoIzq.buscarElemento(obj);
+			}
+		}else if(this.objeto.compareTo(obj)<0){
+			if(hijoDer==null){
+				return null;
+			}else{
+				return hijoDer.buscarElemento(obj);
+			}
+		}
+		return null;
 	}
 	
 	public void leftRotate(ArbolAvl a){
@@ -99,6 +144,26 @@ public class NodoAvl<T extends Comparable> {
 		}
 		return Math.max(izq, der);
 	}
+	public NodoAvl <T> sucesor (){
+		NodoAvl <T> act = null;
+		if (hijoDer != null) {
+			act = hijoDer;
+			while (act.hijoIzq != null) {
+				act = act.hijoIzq;
+			}
+		}
+		return act;
+	}
+	public NodoAvl<T> antecesor () {
+		NodoAvl <T> act = null;
+		if (hijoIzq != null) {
+			act = hijoIzq;
+			while (act.hijoDer != null) {
+				act = act.hijoDer;
+			}
+		}
+		return act;
+	}
 	
 	public NodoAvl<T> darHijoIzq() {
 		return hijoIzq;
@@ -123,6 +188,10 @@ public class NodoAvl<T extends Comparable> {
 	}
 	public void modificarObjeto(T objeto) {
 		this.objeto = objeto;
+	}
+	
+	public ArrayList<T> darRepetidos(){
+		return repetidos;
 	}
 	
 }

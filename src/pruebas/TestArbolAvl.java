@@ -9,58 +9,53 @@ import estructuras.NodoAvl;
 
 public class TestArbolAvl {
 	ArbolAvl<Integer> arbol;
+	private void setupEscenario0(){
+		arbol= new ArbolAvl<>();
+	}
 	private void setupEscenario1(){
 		arbol= new ArbolAvl<>();
-		NodoAvl<Integer> n1=new NodoAvl<Integer>(5);
+		NodoAvl<Integer> n1=new NodoAvl<Integer>(5,null);
 		arbol.modificarRaiz(n1);
-		NodoAvl<Integer> n2= new NodoAvl<Integer>(3);
-		n2.modificarPadre(n1);
-		NodoAvl<Integer> n3= new NodoAvl<Integer>(8);
-		n3.modificarPadre(n1);
-		NodoAvl<Integer> n4= new NodoAvl<Integer>(4);
-		n4.modificarPadre(n2);
+		NodoAvl<Integer> n2= new NodoAvl<Integer>(3,n1);
+		NodoAvl<Integer> n3= new NodoAvl<Integer>(8,n1);
+		NodoAvl<Integer> n4= new NodoAvl<Integer>(4,n2);
 		n1.modificarHijoIzq(n2);
 		n1.modificarHijoDer(n3);
 		n2.modificarHijoDer(n4);
 	}
 	private void setupEscenario2(){
 		arbol= new ArbolAvl<>();
-		NodoAvl<Integer> n1=new NodoAvl<Integer>(5);
+		NodoAvl<Integer> n1=new NodoAvl<Integer>(5,null);
 		arbol.modificarRaiz(n1);
-		NodoAvl<Integer> n2= new NodoAvl<Integer>(3);
-		n2.modificarPadre(n1);
-		NodoAvl<Integer> n3= new NodoAvl<Integer>(8);
-		n3.modificarPadre(n1);
-		NodoAvl<Integer> n4= new NodoAvl<Integer>(4);
-		n4.modificarPadre(n3);
+		NodoAvl<Integer> n2= new NodoAvl<Integer>(3,n1);
+		NodoAvl<Integer> n3= new NodoAvl<Integer>(8,n1);
+		NodoAvl<Integer> n4= new NodoAvl<Integer>(4,n3);
+
 		n1.modificarHijoIzq(n2);
 		n1.modificarHijoDer(n3);
 		n3.modificarHijoIzq(n4);
 	}
 	private void setupEscenario3(){
 		arbol=new ArbolAvl<>();
-		NodoAvl<Integer> raiz= new NodoAvl<Integer>(5);
+		NodoAvl<Integer> raiz= new NodoAvl<Integer>(5,null);
 		arbol.modificarRaiz(raiz);
 	}
 	
 	private void setupEscenario4(){
 		arbol= new ArbolAvl<>();
-		NodoAvl<Integer> raiz= new NodoAvl<Integer>(5);
+		NodoAvl<Integer> raiz= new NodoAvl<Integer>(5,null);
 		arbol.modificarRaiz(raiz);
-		raiz.modificarHijoIzq(new NodoAvl<Integer>(3));
-		raiz.darHijoIzq().modificarPadre(raiz);
-		raiz.darHijoIzq().modificarHijoDer(new NodoAvl<Integer>(4));
-		raiz.darHijoIzq().darHijoDer().modificarPadre(raiz.darHijoIzq());
+		raiz.modificarHijoIzq(new NodoAvl<Integer>(3,raiz));
+		raiz.darHijoIzq().modificarHijoDer(new NodoAvl<Integer>(4,raiz.darHijoIzq()));
 	}
 	
 	private void setupEscenario5(){
 		arbol=new ArbolAvl<>();
-		NodoAvl<Integer> raiz= new NodoAvl<Integer>(5);
+		NodoAvl<Integer> raiz= new NodoAvl<Integer>(5,null);
 		arbol.modificarRaiz(raiz);
-		raiz.modificarHijoDer(new NodoAvl<Integer>(7));
-		raiz.darHijoDer().modificarPadre(raiz);
-		raiz.darHijoDer().modificarHijoIzq(new NodoAvl<Integer>(6));
-		raiz.darHijoDer().darHijoIzq().modificarPadre(raiz.darHijoDer());
+		raiz.modificarHijoDer(new NodoAvl<Integer>(7,raiz));
+		raiz.darHijoDer().modificarHijoIzq(new NodoAvl<Integer>(6,raiz.darHijoDer()));
+
 	}
 	@Test
 	public void probarRotaciones(){
@@ -146,6 +141,57 @@ public class TestArbolAvl {
 		assertTrue(arbol.darRaiz().darHijoIzq().darPadre().darObjeto()==6);
 		assertTrue(arbol.darRaiz().darHijoDer().darObjeto()==7);
 		assertTrue(arbol.darRaiz().darHijoDer().darPadre().darObjeto()==6);
+	}
+	
+	@Test
+	public void probarInsertar(){
+		//CASO1
+		setupEscenario0();
+		arbol.insertar(5);
+		assertTrue(arbol.darRaiz().darObjeto()==5);
+		arbol.insertar(3);
+		assertTrue(arbol.darRaiz().darHijoIzq().darObjeto()==3);
+		arbol.insertar(4);
+		assertTrue(arbol.darRaiz().darObjeto()==4 && arbol.darRaiz().darHijoDer().darObjeto()==5 
+				&& arbol.darRaiz().darHijoIzq().darObjeto()==3);
+		//CASO2
+		setupEscenario0();
+		arbol.insertar(5);
+		assertTrue(arbol.darRaiz().darObjeto()== 5);
+		arbol.insertar(7);
+		assertTrue(arbol.darRaiz().darHijoDer().darObjeto()==7);
+		arbol.insertar(6);
+		assertTrue(arbol.darRaiz().darObjeto()==6 && arbol.darRaiz().darHijoDer().darObjeto()==7 
+				&& arbol.darRaiz().darHijoIzq().darObjeto()==5);
+		//CASO3
+		setupEscenario0();
+		arbol.insertar(5);
+		assertTrue(arbol.darRaiz().darObjeto()==5);
+		arbol.insertar(3);
+		assertTrue(arbol.darRaiz().darHijoIzq().darObjeto()==3);
+		arbol.insertar(2);
+		assertTrue(arbol.darRaiz().darObjeto()==3 && arbol.darRaiz().darHijoDer().darObjeto()==5 
+				&& arbol.darRaiz().darHijoIzq().darObjeto()==2);
+		//CASO4
+		setupEscenario0();
+		arbol.insertar(5);
+		arbol.insertar(7);
+		arbol.insertar(8);
+		assertTrue(arbol.darRaiz().darObjeto()==7 && arbol.darRaiz().darHijoDer().darObjeto()==8 
+				&& arbol.darRaiz().darHijoIzq().darObjeto()==5);
+	}
+	
+	@Test
+	public void probarEliminar(){
+		probarInsertar();
+		arbol.insertar(9);
+		try {
+			arbol.eliminarNodo(5);
+		} catch (Exception e) {
+			fail();
+		}
+		assertTrue(arbol.darRaiz().darObjeto()==8&& arbol.darRaiz().darHijoIzq().darObjeto()==7&&arbol.darRaiz().darHijoDer().darObjeto()==9);
+		assertTrue(arbol.darRaiz().darHijoDer().darPadre().darObjeto()==8&&arbol.darRaiz().darHijoIzq().darPadre().darObjeto()==8);
 	}
 
 }
