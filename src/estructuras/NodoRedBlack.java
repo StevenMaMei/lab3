@@ -131,11 +131,11 @@ public class NodoRedBlack <T extends Comparable> implements Serializable{
 		return act;
 	}
 	
-	public NodoRedBlack <T> sucesor (){
-		NodoRedBlack <T> act = null;
-		if (der != null) {
+	public NodoRedBlack <T> sucesor (RedBlack T){
+		NodoRedBlack <T> act = T.getNil();
+		if (der != T.getNil()) {
 			act = der;
-			while (act.getIzq() != null) {
+			while (act.getIzq() != T.getNil()) {
 				act = act.getIzq();
 			}
 		}

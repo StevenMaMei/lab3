@@ -67,6 +67,8 @@ public class RedBlack <T extends Comparable> implements IRedBlack<T>, Serializab
 						z = papa;
 						z.leftRotate(this);
 				}
+					papa = z.getPadre();
+					abuelo = papa.getPadre();
 					papa.setColor(Color.BLACK);
 					abuelo.setColor(Color.RED);
 					abuelo.rigthRotate(this);
@@ -128,7 +130,7 @@ public class RedBlack <T extends Comparable> implements IRedBlack<T>, Serializab
 		if (z.getIzq() == nil || z.getDer() == nil) {
 			y = z;
 		} else {
-			y = z.sucesor();
+			y = z.sucesor(this);
 		}
 		if (y.getIzq() != nil) {
 			x = y.getIzq();
@@ -210,6 +212,7 @@ public class RedBlack <T extends Comparable> implements IRedBlack<T>, Serializab
 				}
 			}
 		}
+		x.setColor(Color.BLACK);
 	}
 
 	@Override
