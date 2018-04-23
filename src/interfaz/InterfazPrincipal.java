@@ -21,6 +21,18 @@ public class InterfazPrincipal extends JFrame {
 	
 	private Buscador conexionMundo;
 	
+	private String [][] matrizLimpar1;
+	private String [][] matrizLimpar2;
+	private String [][] matrizLimpar3;
+	private String [][] matrizLimpar4;
+	private String [][] matrizLimpar5;
+	private String [][] matrizLimpar6;
+	private String [][] matrizLimpar7;
+	private String [][] matrizLimpar8;
+	
+	
+	
+	
 	
 	public InterfazPrincipal() throws FileNotFoundException, ClassNotFoundException, IOException {
 	
@@ -35,6 +47,14 @@ public class InterfazPrincipal extends JFrame {
 		panelBotones = new PanelBotones(this);
 		panelTitulo = new PanelTitulo();
 		panelDato = new PanelDatoBuscar();
+		matrizLimpar1 = new String [10387][8];
+		matrizLimpar2 = new String [10387][8];
+		matrizLimpar3 = new String [10387][8];
+		matrizLimpar4 = new String [10387][8];
+		matrizLimpar5 = new String [10387][8];
+		matrizLimpar6 = new String [10387][8];
+		matrizLimpar7 = new String [10387][8];
+		matrizLimpar8 = new String [10387][8];
 		
 		setLayout(new BorderLayout());
 		
@@ -52,20 +72,21 @@ public class InterfazPrincipal extends JFrame {
 		
 	}
 	
-	public void buscarSI() {
+	public String [][] buscarSI() {
 		String dato = panelDato.getDato();  
 		String [][] matriz = null;
 		try {
 			matriz  = conexionMundo.buscarNombreIps(dato);
 			panelBaseDeDatos.refrescarDatosEncontrados(matriz);
+			System.out.println(matriz.toString());
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "El hospital no se encuentra en la base de datos");
 		}
 	
-		
+		return matriz;
 	}
 	
-	public void buscarNI() {
+	public String [][] buscarNI() {
 		String dato = panelDato.getDato(); 
 		String [][] matriz = null;
 		try {
@@ -75,10 +96,10 @@ public class InterfazPrincipal extends JFrame {
 			JOptionPane.showMessageDialog(null, "El hospital no se encuentra en la base de datos");
 		
 		}
-		
+		return matriz ;
 	}
 
-	public void buscarN() {
+	public String [][] buscarN() {
 		String dato = panelDato.getDato();  ; 
 		String [][] matriz = null;
 		try {
@@ -87,9 +108,10 @@ public class InterfazPrincipal extends JFrame {
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "El hospital no se encuentra en la base de datos");
 		}
+		return matriz;
 	}
 
-	public void buscarD() {
+	public String [][] buscarD() {
 		String dato = panelDato.getDato();  ; 
 		String [][] matriz = null;
 		try {
@@ -98,15 +120,11 @@ public class InterfazPrincipal extends JFrame {
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "El hospital no se encuentra en la base de datos");
 		}
-		
+		return matriz;
 	}
 
-	public void limpiarTabla() {
-		
-		panelBaseDeDatos.limpiarTabla();
-	}
 	
-	public void buscarNA() {
+	public String [][] buscarNA() {
 		String dato = panelDato.getDato();  ; 
 		String [][] matriz = null;
 		try {
@@ -116,9 +134,10 @@ public class InterfazPrincipal extends JFrame {
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "El hospital no se encuentra en la base de datos");
 		}
+		return matriz;
 	}
 
-	public void buscarGC() {
+	public String [][] buscarGC() {
 		String dato = panelDato.getDato();  ; 
 		String [][] matriz = null;
 		try {
@@ -127,20 +146,23 @@ public class InterfazPrincipal extends JFrame {
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "El hospital no se encuentra en la base de datos");
 		}
+		return matriz;
 	}
 	
-	public void buscarDC() {
+	public String [][] buscarDC() {
 		String dato = panelDato.getDato();  ; 
 		String [][] matriz = null;
 		try {
 			matriz  = conexionMundo.buscarDescripcionCapacidad(dato);
 			panelBaseDeDatos.refrescarDatosEncontrados(matriz);
+			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "El hospital no se encuentra en la base de datos");
 		}
+		return matriz;
 	}
 
-	public void buscarCI() {
+	public String [][] buscarCI() {
 		String dato = panelDato.getDato();  ; 
 		String [][] matriz = null;
 		try {
@@ -149,8 +171,13 @@ public class InterfazPrincipal extends JFrame {
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "El hospital no se encuentra en la base de datos");
 		}
+		return matriz;
 		
-		
+	}
+	
+
+	public void limpiarTabla() {
+		panelBaseDeDatos.limpiarTabla();
 	}
 	
 	public static void main (String [] arga) throws FileNotFoundException, ClassNotFoundException, IOException {

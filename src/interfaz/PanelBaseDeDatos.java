@@ -54,15 +54,21 @@ public class PanelBaseDeDatos extends JPanel {
 		}
 		
 	public void limpiarTabla() {
-	
-		DefaultTableModel modelo = (DefaultTableModel) JtableBaseDeDatos.getModel();
-		while(modelo.getRowCount()>0)modelo.removeRow(0); {
-		//TableColumnModel 
+		
+		for (int i = 0; i < 10387; i++) {
+			for (int j = 0; j < 8; j++) {
+				if(datos[i][j]!=null) {
+					datos [i][j] = "";
+				}	
+				}
+				
+			}
 		}
+		
 	}
 	
 		
-	}
+	
 	
 	
 	

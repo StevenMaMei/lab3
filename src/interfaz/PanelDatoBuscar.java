@@ -19,7 +19,6 @@ public class PanelDatoBuscar extends JPanel implements ActionListener {
 	
 	private JTextField campo;
 	private JButton limpiar;
-	
 	private InterfazPrincipal principal;
 	
 	public PanelDatoBuscar() {
@@ -45,21 +44,15 @@ public class PanelDatoBuscar extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
 		String comant = e.getActionCommand();
-		
 		if(comant.equals(LIMPIAR)) {
-			campo.setText(" ");
-			principal.limpiarTabla();
+			campo.setText("");
+			//principal.limpiarTabla();
 		}
-		
-		
 	}
 	
 	public String getDato() {
 		String dato = campo.getText();
 		return dato;
 	}
-	
-	
 }
