@@ -14,6 +14,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.TitledBorder;
 import javax.swing.plaf.BorderUIResource.TitledBorderUIResource;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
 public class PanelBaseDeDatos extends JPanel {
 
@@ -51,6 +53,14 @@ public class PanelBaseDeDatos extends JPanel {
 			
 		}
 		
+	public void limpiarTabla() {
+	
+		DefaultTableModel modelo = (DefaultTableModel) JtableBaseDeDatos.getModel();
+		while(modelo.getRowCount()>0)modelo.removeRow(0); {
+		//TableColumnModel 
+		}
+	}
+	
 		
 	}
 	

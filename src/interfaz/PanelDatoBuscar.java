@@ -20,6 +20,8 @@ public class PanelDatoBuscar extends JPanel implements ActionListener {
 	private JTextField campo;
 	private JButton limpiar;
 	
+	private InterfazPrincipal principal;
+	
 	public PanelDatoBuscar() {
 		
 		TitledBorder opciones = BorderFactory.createTitledBorder("Buscar");
@@ -48,6 +50,7 @@ public class PanelDatoBuscar extends JPanel implements ActionListener {
 		
 		if(comant.equals(LIMPIAR)) {
 			campo.setText(" ");
+			principal.limpiarTabla();
 		}
 		
 		

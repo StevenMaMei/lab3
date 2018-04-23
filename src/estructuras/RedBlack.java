@@ -99,7 +99,7 @@ public class RedBlack <T extends Comparable> implements IRedBlack<T>, Serializab
 		if (raiz == null) {
 			throw new Exception("No se encontró el elemento a eliminar");
 		} else {
-			 encontrado = raiz.buscarElemento(objetoAct, this);
+			 encontrado = raiz.buscarElemento(objetoAct);
 		}
 		
 		return encontrado;

@@ -101,12 +101,18 @@ public class InterfazPrincipal extends JFrame {
 		
 	}
 
+	public void limpiarTabla() {
+		
+		panelBaseDeDatos.limpiarTabla();
+	}
+	
 	public void buscarNA() {
 		String dato = panelDato.getDato();  ; 
 		String [][] matriz = null;
 		try {
 			matriz  = conexionMundo.buscarNivelAtencion(dato);
 			panelBaseDeDatos.refrescarDatosEncontrados(matriz);
+			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "El hospital no se encuentra en la base de datos");
 		}
