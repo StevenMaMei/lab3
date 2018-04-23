@@ -114,6 +114,7 @@ public class Buscador {
 			arch = new File ("./baseDatos/tabla/" + ++i + ".txt");
 		}
 		encontrados = new String [arr.size()][8];
+		i = 0;
 		for (String[] fila : arr) {
 			if (fila.length == 8) {
 				encontrados[i] = fila;
@@ -123,6 +124,7 @@ public class Buscador {
 					encontrados[i][j] = fila[j+1];
 				}
 			}
+			i++;
 		}
 		return encontrados;
 	}
@@ -141,6 +143,7 @@ public class Buscador {
 			arch = new File ("./baseDatos/tabla/" + ++i + ".txt");
 		}
 		encontrados = new String [arr.size()][8];
+		i = 0;
 		for (String[] fila : arr) {
 			if (fila.length == 8) {
 				encontrados[i] = fila;
@@ -150,6 +153,7 @@ public class Buscador {
 					encontrados[i][j] = fila[j+1];
 				}
 			}
+			i++;
 		}
 		return encontrados;
 	}
@@ -168,6 +172,7 @@ public class Buscador {
 			arch = new File ("./baseDatos/tabla/" + ++i + ".txt");
 		}
 		encontrados = new String [arr.size()][8];
+		i = 0;
 		for (String[] fila : arr) {
 			if (fila.length == 8) {
 				encontrados[i] = fila;
@@ -177,6 +182,7 @@ public class Buscador {
 					encontrados[i][j] = fila[j+1];
 				}
 			}
+			i++;
 		}
 		return encontrados;
 	}
@@ -194,6 +200,7 @@ public class Buscador {
 			}
 			arch = new File ("./baseDatos/tabla/" + ++i + ".txt");
 		}
+		i = 0;
 		encontrados = new String [arr.size()][8];
 		for (String[] fila : arr) {
 			if (fila.length == 8) {
@@ -204,6 +211,7 @@ public class Buscador {
 					encontrados[i][j] = fila[j+1];
 				}
 			}
+			i++;
 		}
 		return encontrados;
 	}
@@ -222,6 +230,7 @@ public class Buscador {
 			arch = new File ("./baseDatos/tabla/" + ++i + ".txt");
 		}
 		encontrados = new String [arr.size()][8];
+		i = 0;
 		for (String[] fila : arr) {
 			if (fila.length == 8) {
 				encontrados[i] = fila;
@@ -231,6 +240,7 @@ public class Buscador {
 					encontrados[i][j] = fila[j+1];
 				}
 			}
+			i++;
 		}
 		return encontrados;
 	}

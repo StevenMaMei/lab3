@@ -27,7 +27,7 @@ public class PanelBaseDeDatos extends JPanel {
 		titulo.setTitleColor(Color.BLACK);
 		setBorder(titulo);
 		
-		datos = new String [10000][8];
+		datos = new String [10387][8];
 		
 		
 		JtableBaseDeDatos = new JTable(datos, titulos);
