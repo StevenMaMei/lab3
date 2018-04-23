@@ -151,7 +151,7 @@ public class RedBlack <T extends Comparable> implements IRedBlack<T>, Serializab
 			z.setElem(y.getElem());
 		}
 		if (y.getColor() == Color.BLACK) {
-			deleteFixup(z);
+			deleteFixup(x);
 		}
 
 	}
