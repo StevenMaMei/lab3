@@ -46,7 +46,7 @@ public class InterfazPrincipal extends JFrame {
 		panelBaseDeDatos = new PanelBaseDeDatos();
 		panelBotones = new PanelBotones(this);
 		panelTitulo = new PanelTitulo();
-		panelDato = new PanelDatoBuscar();
+		panelDato = new PanelDatoBuscar(this);
 		matrizLimpar1 = new String [10387][8];
 		matrizLimpar2 = new String [10387][8];
 		matrizLimpar3 = new String [10387][8];

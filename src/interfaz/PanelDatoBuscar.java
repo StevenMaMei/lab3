@@ -21,11 +21,13 @@ public class PanelDatoBuscar extends JPanel implements ActionListener {
 	private JButton limpiar;
 	private InterfazPrincipal principal;
 	
-	public PanelDatoBuscar() {
+	public PanelDatoBuscar(InterfazPrincipal p) {
 		
 		TitledBorder opciones = BorderFactory.createTitledBorder("Buscar");
 		opciones.setTitleColor(Color.BLACK);
 		setBorder(opciones);
+		
+		principal = p;
 		
 		campo = new JTextField();
 		campo.setFont(new java.awt.Font("Tahoma", 0, 30));
@@ -47,6 +49,7 @@ public class PanelDatoBuscar extends JPanel implements ActionListener {
 		String comant = e.getActionCommand();
 		if(comant.equals(LIMPIAR)) {
 			campo.setText("");
+			principal.limpiarTabla();
 			//principal.limpiarTabla();
 		}
 	}

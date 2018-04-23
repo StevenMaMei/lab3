@@ -43,7 +43,7 @@ public class PanelBaseDeDatos extends JPanel {
 	
 
 	public void refrescarDatosEncontrados(String [][] matriz) {
-			
+		limpiarTabla();
 		for (int i =0 ; i<matriz.length;i++) 
 			for(int j=0; j<matriz[i].length; j++) {
 				datos[i][j] = matriz[i][j];
@@ -57,13 +57,12 @@ public class PanelBaseDeDatos extends JPanel {
 		
 		for (int i = 0; i < 10387; i++) {
 			for (int j = 0; j < 8; j++) {
-				if(datos[i][j]!=null) {
-					datos [i][j] = "";
-				}	
-				}
-				
+				datos[i][j] = "";
 			}
+				
 		}
+		repaint();
+	}
 		
 	}
 	
