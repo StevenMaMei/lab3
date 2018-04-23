@@ -142,20 +142,20 @@ public class NodoRedBlack <T extends Comparable> implements Serializable{
 		return act;
 	}
 	
-	public NodoRedBlack<T> buscarElemento(T objeto){
+	public NodoRedBlack<T> buscarElemento(T objeto, RedBlack arb){
 		if(elem.compareTo(objeto) == 0){
 			return this;
 		}else if(elem.compareTo(objeto)>0){
-			if(izq == null){
+			if(izq == arb.getNil()){
 				return null;
 			}else{
-				return izq.buscarElemento(objeto);
+				return izq.buscarElemento(objeto, arb);
 			}
 		}else if(elem.compareTo(objeto)<0){
-			if(der==null){
+			if(der==arb.getNil()){
 				return null;
 			}else{
-				return der.buscarElemento(objeto);
+				return der.buscarElemento(objeto, arb);
 			}
 		}
 		return null;
