@@ -46,13 +46,13 @@ public class PanelBotones extends JPanel implements ActionListener {
 		opciones.setTitleColor(Color.BLACK);
 		setBorder(opciones);
 		
-		btBuscarSI = new JButton("Buscar Sede IPS");
-		btBuscarNI = new JButton("Buscar NIT IPS");
+		btBuscarSI = new JButton("Buscar Sede IPS (A)");
+		btBuscarNI = new JButton("Buscar NIT IPS (A)");
 		btBuscarN = new JButton("Buscar Naturaleza");
 		btBuscarD = new JButton("Buscar Num digito verificación");
 		btBuscarNA = new JButton("Buscar Nivel Atención");
 		btBuscarGC = new JButton("Busca Nom Grupo Capacidad");
-		btBuscarDC = new JButton("Buscar Descripción Capacidad");
+		btBuscarDC = new JButton("Buscar Descripción Capacidad (A)");
 		btBuscarCI = new JButton("Buscar Num Cant Capacidad Instalada");
 		
 		

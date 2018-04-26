@@ -108,17 +108,7 @@ public class RedBlack <T extends Comparable> implements IRedBlack<T>, Serializab
 	}
 	
 	
-//	public void tranplant (NodoArbol<T> u, NodoArbol<T> v) {
-//		if (u.getPadre() == nil) {
-//			raiz = v;
-//		} else if (u == u.getPadre().getIzq()) {
-//			u.getPadre().setIzq(v);
-//		} else {
-//			u.getPadre().setDer(v);
-//		}
-//		v.setAntecesor(u.getPadre());
-//	}
-	
+
 	@Override
 	public void eliminarNodo(T objetoAct) throws Exception {
 		NodoRedBlack<T> z = buscarNodo(objetoAct);
